@@ -15,7 +15,6 @@ final class MLoginViewViewModel: NSObject {
     override init() {
         titleText = "Mobile Up\nGallery"
         buttonText = "Вход через VK"
-        super.init()
     }
     
     func loginButtonTapped() {

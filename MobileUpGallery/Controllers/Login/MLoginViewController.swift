@@ -32,9 +32,9 @@ final class MLoginViewController: UIViewController {
 
 extension MLoginViewController: MLoginViewViewModelDelegate {
     func loginViewDidTapButton() {
-        let authorizationVC = MAuthorizationWebViewController()
+        let authorizationVC = MAuthorizationViewController()
         let navigationController = UINavigationController(rootViewController: authorizationVC)
-        navigationController.modalPresentationStyle = .fullScreen 
+        navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true, completion: nil)
     }
 }
