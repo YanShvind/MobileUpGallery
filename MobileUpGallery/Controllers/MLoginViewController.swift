@@ -11,6 +11,7 @@ final class MLoginViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         setUpView()
+        viewModel.delegate = self
         bindViewModel()
     }
     
@@ -29,3 +30,11 @@ final class MLoginViewController: UIViewController {
     }
 }
 
+extension MLoginViewController: MLoginViewViewModelDelegate {
+    func loginViewDidTapButton() {
+        let authorizationVC = MAuthorizationWebViewController()
+        let navigationController = UINavigationController(rootViewController: authorizationVC)
+        navigationController.modalPresentationStyle = .fullScreen 
+        present(navigationController, animated: true, completion: nil)
+    }
+}

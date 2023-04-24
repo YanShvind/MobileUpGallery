@@ -52,7 +52,6 @@ final class MLoginView: UIView {
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 170),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
-            titleLabel.heightAnchor.constraint(equalToConstant: 150),
             
             loginButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
