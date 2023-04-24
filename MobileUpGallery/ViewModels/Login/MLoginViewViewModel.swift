@@ -6,9 +6,9 @@ protocol MLoginViewViewModelDelegate: AnyObject {
 }
 
 final class MLoginViewViewModel: NSObject {
-    
+        
     weak var delegate: MLoginViewViewModelDelegate?
-    
+        
     let titleText: String
     let buttonText: String
     
