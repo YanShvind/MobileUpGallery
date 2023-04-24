@@ -4,6 +4,13 @@ import UIKit
 
 final class MLoginView: UIView {
     
+    var viewModel: MLoginViewViewModel? {
+        didSet {
+            titleLabel.text = viewModel?.titleText
+            loginButton.setTitle(viewModel?.buttonText, for: .normal)
+        }
+    }
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
@@ -22,14 +29,7 @@ final class MLoginView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    var viewModel: MLoginViewViewModel? {
-        didSet {
-            titleLabel.text = viewModel?.titleText
-            loginButton.setTitle(viewModel?.buttonText, for: .normal)
-        }
-    }
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false

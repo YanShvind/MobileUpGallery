@@ -2,7 +2,7 @@
 import UIKit
 import WebKit
 
-final class MAuthorizationWebViewController: UIViewController {
+final class MAuthorizationViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +35,33 @@ final class MAuthorizationWebViewController: UIViewController {
     }
 }
 
-extension MAuthorizationWebViewController: WKNavigationDelegate {
+extension MAuthorizationViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse,
         decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void
     ) {
-        decisionHandler(.allow)
+        guard let url = navigationResponse.response.url,
+              url.path == "/blank.html",
+              let fragment = url.fragment else {
+                decisionHandler(.allow)
+                return
+        }
+
+        let params = fragment.components(separatedBy: "&")
+            .map {$0.components(separatedBy: "=")}
+            .reduce([String: String]()) { res, param in
+                var dict = res
+                let key = param[0]
+                let value = param[1]
+                dict[key] = value
+
+                return dict
+            }
+
+        if let accessToken = params["access_token"] {
+            print("access token - \(accessToken)")
+            let galleryVC = MGalleryViewController()
+            navigationController?.setViewControllers([galleryVC], animated: true)
+        }
+        decisionHandler(.cancel)
     }
 }
