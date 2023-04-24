@@ -13,6 +13,8 @@
 		6D3E4CFC29F6D4F200A99E04 /* MGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4CFB29F6D4F200A99E04 /* MGalleryCollectionViewCell.swift */; };
 		6D3E4CFF29F7049100A99E04 /* MDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4CFE29F7049100A99E04 /* MDetailViewController.swift */; };
 		6D3E4D0229F704DE00A99E04 /* MDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4D0129F704DE00A99E04 /* MDetailView.swift */; };
+		6D3E4D0529F7146B00A99E04 /* MKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4D0429F7146B00A99E04 /* MKeychainManager.swift */; };
+		6D3E4D0729F7206500A99E04 /* MDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4D0629F7206500A99E04 /* MDataManager.swift */; };
 		6DE5FCCB29F694D9008D9632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5FCCA29F694D9008D9632 /* AppDelegate.swift */; };
 		6DE5FCCD29F694D9008D9632 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5FCCC29F694D9008D9632 /* SceneDelegate.swift */; };
 		6DE5FCCF29F694D9008D9632 /* MLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5FCCE29F694D9008D9632 /* MLoginViewController.swift */; };
@@ -31,6 +33,8 @@
 		6D3E4CFB29F6D4F200A99E04 /* MGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		6D3E4CFE29F7049100A99E04 /* MDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDetailViewController.swift; sourceTree = "<group>"; };
 		6D3E4D0129F704DE00A99E04 /* MDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDetailView.swift; sourceTree = "<group>"; };
+		6D3E4D0429F7146B00A99E04 /* MKeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKeychainManager.swift; sourceTree = "<group>"; };
+		6D3E4D0629F7206500A99E04 /* MDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDataManager.swift; sourceTree = "<group>"; };
 		6DE5FCC729F694D9008D9632 /* MobileUpGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DE5FCCA29F694D9008D9632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DE5FCCC29F694D9008D9632 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +125,15 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		6D3E4D0329F7143500A99E04 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				6D3E4D0429F7146B00A99E04 /* MKeychainManager.swift */,
+				6D3E4D0629F7206500A99E04 /* MDataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		6DE5FCBE29F694D9008D9632 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				6DE5FCE329F69608008D9632 /* Application */,
+				6D3E4D0329F7143500A99E04 /* Managers */,
 				6DE5FCE229F695EA008D9632 /* ViewModels */,
 				6DE5FCE129F695DE008D9632 /* Views */,
 				6DE5FCE029F695D1008D9632 /* Models */,
@@ -278,6 +292,7 @@
 			files = (
 				6DE5FCCF29F694D9008D9632 /* MLoginViewController.swift in Sources */,
 				6D3E4CFF29F7049100A99E04 /* MDetailViewController.swift in Sources */,
+				6D3E4D0729F7206500A99E04 /* MDataManager.swift in Sources */,
 				6DE5FCCB29F694D9008D9632 /* AppDelegate.swift in Sources */,
 				6DE5FCCD29F694D9008D9632 /* SceneDelegate.swift in Sources */,
 				6D3E4CF629F6C6CB00A99E04 /* MGalleryView.swift in Sources */,
@@ -285,6 +300,7 @@
 				6D3E4CFA29F6D39400A99E04 /* MGalleryViewViewModel.swift in Sources */,
 				6D3E4D0229F704DE00A99E04 /* MDetailView.swift in Sources */,
 				6D3E4CF229F6C67900A99E04 /* MGalleryViewController.swift in Sources */,
+				6D3E4D0529F7146B00A99E04 /* MKeychainManager.swift in Sources */,
 				6DE5FCEB29F6BB05008D9632 /* MAuthorizationWebViewController.swift in Sources */,
 				6DE5FCE929F6A659008D9632 /* MLoginViewViewModel.swift in Sources */,
 				6DE5FCE729F6985C008D9632 /* MLoginView.swift in Sources */,

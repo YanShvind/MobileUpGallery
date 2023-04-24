@@ -59,7 +59,7 @@ extension MAuthorizationViewController: WKNavigationDelegate {
 
         if let accessToken = params["access_token"] {
             print("access token - \(accessToken)")
-            MLoginViewViewModel.shared.userLoggedIn = true
+            MKeychainManager.shared.saveToken(token: accessToken)
             let galleryVC = MGalleryViewController()
             navigationController?.setViewControllers([galleryVC], animated: true)
         }
