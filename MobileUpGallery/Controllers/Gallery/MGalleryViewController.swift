@@ -4,14 +4,16 @@ import UIKit
 final class MGalleryViewController: UIViewController {
     
     private let galleryView = MGalleryView()
-   // private let viewModel = MGalleryViewViewModel()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(MLoginViewViewModel.shared.userLoggedIn)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpComponents()
         setUpView()
-      //  bindViewModel()
     }
 
     private func setUpComponents() {

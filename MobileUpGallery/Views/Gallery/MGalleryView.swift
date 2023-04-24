@@ -5,7 +5,7 @@ final class MGalleryView: UIView {
     
     private let viewModel = MGalleryViewViewModel()
     
-    private lazy var collectionView: UICollectionView = {
+    private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
         layout.minimumInteritemSpacing = 2

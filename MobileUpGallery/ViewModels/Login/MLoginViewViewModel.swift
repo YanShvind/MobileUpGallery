@@ -7,7 +7,11 @@ protocol MLoginViewViewModelDelegate: AnyObject {
 
 final class MLoginViewViewModel: NSObject {
     
+    static let shared = MLoginViewViewModel()
+    
     weak var delegate: MLoginViewViewModelDelegate?
+    
+    var userLoggedIn = false
     
     let titleText: String
     let buttonText: String

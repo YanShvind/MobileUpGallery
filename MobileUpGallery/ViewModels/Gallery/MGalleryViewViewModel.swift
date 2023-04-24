@@ -26,4 +26,8 @@ extension MGalleryViewViewModel: UICollectionViewDelegate, UICollectionViewDataS
         let widthPerItem = collectionView.frame.width / 2 - layout.minimumInteritemSpacing
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("FF")
+    }
 }

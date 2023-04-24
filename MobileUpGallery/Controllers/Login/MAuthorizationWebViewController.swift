@@ -3,12 +3,12 @@ import UIKit
 import WebKit
 
 final class MAuthorizationViewController: UIViewController {
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        self.makeurlComponents()
+        makeurlComponents()
     }
     
     private func makeurlComponents() {
@@ -59,6 +59,7 @@ extension MAuthorizationViewController: WKNavigationDelegate {
 
         if let accessToken = params["access_token"] {
             print("access token - \(accessToken)")
+            MLoginViewViewModel.shared.userLoggedIn = true
             let galleryVC = MGalleryViewController()
             navigationController?.setViewControllers([galleryVC], animated: true)
         }

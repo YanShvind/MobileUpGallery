@@ -11,6 +11,8 @@
 		6D3E4CF629F6C6CB00A99E04 /* MGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4CF529F6C6CB00A99E04 /* MGalleryView.swift */; };
 		6D3E4CFA29F6D39400A99E04 /* MGalleryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4CF929F6D39400A99E04 /* MGalleryViewViewModel.swift */; };
 		6D3E4CFC29F6D4F200A99E04 /* MGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4CFB29F6D4F200A99E04 /* MGalleryCollectionViewCell.swift */; };
+		6D3E4CFF29F7049100A99E04 /* MDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4CFE29F7049100A99E04 /* MDetailViewController.swift */; };
+		6D3E4D0229F704DE00A99E04 /* MDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4D0129F704DE00A99E04 /* MDetailView.swift */; };
 		6DE5FCCB29F694D9008D9632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5FCCA29F694D9008D9632 /* AppDelegate.swift */; };
 		6DE5FCCD29F694D9008D9632 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5FCCC29F694D9008D9632 /* SceneDelegate.swift */; };
 		6DE5FCCF29F694D9008D9632 /* MLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5FCCE29F694D9008D9632 /* MLoginViewController.swift */; };
@@ -27,6 +29,8 @@
 		6D3E4CF529F6C6CB00A99E04 /* MGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGalleryView.swift; sourceTree = "<group>"; };
 		6D3E4CF929F6D39400A99E04 /* MGalleryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGalleryViewViewModel.swift; sourceTree = "<group>"; };
 		6D3E4CFB29F6D4F200A99E04 /* MGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		6D3E4CFE29F7049100A99E04 /* MDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDetailViewController.swift; sourceTree = "<group>"; };
+		6D3E4D0129F704DE00A99E04 /* MDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDetailView.swift; sourceTree = "<group>"; };
 		6DE5FCC729F694D9008D9632 /* MobileUpGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DE5FCCA29F694D9008D9632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DE5FCCC29F694D9008D9632 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +105,22 @@
 			path = Gallery;
 			sourceTree = "<group>";
 		};
+		6D3E4CFD29F7046300A99E04 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				6D3E4CFE29F7049100A99E04 /* MDetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		6D3E4D0029F704B800A99E04 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				6D3E4D0129F704DE00A99E04 /* MDetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		6DE5FCBE29F694D9008D9632 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +164,7 @@
 			children = (
 				6D3E4CEF29F6C62000A99E04 /* Login */,
 				6D3E4CF029F6C63100A99E04 /* Gallery */,
+				6D3E4CFD29F7046300A99E04 /* Detail */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -160,6 +181,7 @@
 			children = (
 				6D3E4CF329F6C69C00A99E04 /* Login */,
 				6D3E4CF429F6C6A700A99E04 /* Gallery */,
+				6D3E4D0029F704B800A99E04 /* Detail */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,11 +277,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DE5FCCF29F694D9008D9632 /* MLoginViewController.swift in Sources */,
+				6D3E4CFF29F7049100A99E04 /* MDetailViewController.swift in Sources */,
 				6DE5FCCB29F694D9008D9632 /* AppDelegate.swift in Sources */,
 				6DE5FCCD29F694D9008D9632 /* SceneDelegate.swift in Sources */,
 				6D3E4CF629F6C6CB00A99E04 /* MGalleryView.swift in Sources */,
 				6D3E4CFC29F6D4F200A99E04 /* MGalleryCollectionViewCell.swift in Sources */,
 				6D3E4CFA29F6D39400A99E04 /* MGalleryViewViewModel.swift in Sources */,
+				6D3E4D0229F704DE00A99E04 /* MDetailView.swift in Sources */,
 				6D3E4CF229F6C67900A99E04 /* MGalleryViewController.swift in Sources */,
 				6DE5FCEB29F6BB05008D9632 /* MAuthorizationWebViewController.swift in Sources */,
 				6DE5FCE929F6A659008D9632 /* MLoginViewViewModel.swift in Sources */,
