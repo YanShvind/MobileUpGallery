@@ -1,17 +1,24 @@
 
 import Foundation
 
-final class MLoginViewViewModel {
+protocol MLoginViewViewModelDelegate: AnyObject {
+    func loginViewDidTapButton()
+}
+
+final class MLoginViewViewModel: NSObject {
+    
+    weak var delegate: MLoginViewViewModelDelegate?
     
     let titleText: String
     let buttonText: String
     
-    init() {
+    override init() {
         titleText = "Mobile Up\nGallery"
         buttonText = "Вход через VK"
+        super.init()
     }
     
     func loginButtonTapped() {
-        print("Вход через VK")
+        delegate?.loginViewDidTapButton()
     }
 }
