@@ -15,7 +15,7 @@ final class MNetworkManager {
     
     static let shared = MNetworkManager()
     
-    func getImages(completion: @escaping (Result<[MPhotoDataModel], Error>) -> Void) {
+    func getImages(completion: @escaping (Result<[MImageDataModel], Error>) -> Void) {
         
         var components = URLComponents(string: MConstants.baseURL + MConstants.albumURL)!
         components.queryItems = [
@@ -34,10 +34,10 @@ final class MNetworkManager {
             do {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .millisecondsSince1970
-                let result = try decoder.decode(MPhotoModel.self, from: data)
-                let images = result.response.items.compactMap { item -> MPhotoDataModel? in
+                let result = try decoder.decode(MImageModel.self, from: data)
+                let images = result.response.items.compactMap { item -> MImageDataModel? in
                     guard let url = item.sizes.first(where: { $0.type.rawValue == "z" })?.url else { return nil }
-                    return MPhotoDataModel(urlString: url, date: item.date, id: item.id)
+                    return MImageDataModel(urlString: url, date: item.date, id: item.id)
                 }
                 completion(.success(images))
             } catch {

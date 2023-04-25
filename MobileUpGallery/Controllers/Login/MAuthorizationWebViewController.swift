@@ -9,6 +9,9 @@ final class MAuthorizationViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         makeurlComponents()
+        
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(backButtonPressed))
+        navigationItem.leftBarButtonItem = backButton
     }
     
     private func makeurlComponents() {
@@ -32,6 +35,14 @@ final class MAuthorizationViewController: UIViewController {
         
         let request = URLRequest(url: urlComponents.url!)
         webView.load(request)
+    }
+    
+    @objc private func backButtonPressed() {
+        if let webview = view as? WKWebView , webview.canGoBack {
+            webview.goBack()
+        } else {
+            dismiss(animated: true)
+        }
     }
 }
 
@@ -61,6 +72,8 @@ extension MAuthorizationViewController: WKNavigationDelegate {
             MKeychainManager.shared.saveToken(token: accessToken)
             let galleryVC = MGalleryViewController()
             navigationController?.setViewControllers([galleryVC], animated: true)
+        } else {
+            dismiss(animated: true)
         }
         decisionHandler(.cancel)
     }

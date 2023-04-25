@@ -1,8 +1,14 @@
 
 import UIKit
 
+protocol MGalleryViewDelegate: AnyObject {
+    func mGalleryView(_ galleryView: MGalleryView,
+                      didSelectImage image: MImageDataModel)
+}
+
 final class MGalleryView: UIView {
     
+    weak var delegate: MGalleryViewDelegate?
     private let viewModel = MGalleryViewViewModel()
     
     private let collectionView: UICollectionView = {
@@ -44,6 +50,10 @@ final class MGalleryView: UIView {
 }
 
 extension MGalleryView: MGalleryViewViewModelDelegate {
+    func didSelectImage(_ image: MImageDataModel) {
+        delegate?.mGalleryView(self, didSelectImage: image)
+    }
+    
     func onCollectionUpdate() {
         self.collectionView.reloadData()
     }

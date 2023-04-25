@@ -35,6 +35,6 @@ extension MLoginViewController: MLoginViewViewModelDelegate {
         let authorizationVC = MAuthorizationViewController()
         let navigationController = UINavigationController(rootViewController: authorizationVC)
         navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
+        present(navigationController, animated: true)
     }
 }

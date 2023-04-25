@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct MPhotoDataModel {
+struct MImageDataModel {
     let urlString: String
     let date, id: Int
 }

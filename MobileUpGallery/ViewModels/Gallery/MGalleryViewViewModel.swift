@@ -4,13 +4,14 @@ import UIKit
 
 protocol MGalleryViewViewModelDelegate: AnyObject {
     func onCollectionUpdate()
+    func didSelectImage(_ image: MImageDataModel)
 }
 
 final class MGalleryViewViewModel: NSObject {
     
     weak var delegate: MGalleryViewViewModelDelegate?
     
-    private var images = [MPhotoDataModel]()
+    private var images = [MImageDataModel]()
     
     public func fetchImages() {
         MNetworkManager.shared.getImages { [weak self] result in
@@ -51,6 +52,9 @@ extension MGalleryViewViewModel: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("FF")
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let image = images[indexPath.row]
+        delegate?.didSelectImage(image)
     }
 }
