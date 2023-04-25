@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D22DFFD29F87E3100EC4F25 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D22DFFC29F87E3100EC4F25 /* Constants.swift */; };
 		6D3E4CF229F6C67900A99E04 /* MGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4CF129F6C67900A99E04 /* MGalleryViewController.swift */; };
 		6D3E4CF629F6C6CB00A99E04 /* MGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4CF529F6C6CB00A99E04 /* MGalleryView.swift */; };
 		6D3E4CFA29F6D39400A99E04 /* MGalleryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4CF929F6D39400A99E04 /* MGalleryViewViewModel.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D22DFFC29F87E3100EC4F25 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6D3E4CF129F6C67900A99E04 /* MGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGalleryViewController.swift; sourceTree = "<group>"; };
 		6D3E4CF529F6C6CB00A99E04 /* MGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGalleryView.swift; sourceTree = "<group>"; };
 		6D3E4CF929F6D39400A99E04 /* MGalleryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGalleryViewViewModel.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				6DE5FCCC29F694D9008D9632 /* SceneDelegate.swift */,
 				6DE5FCD529F694DA008D9632 /* LaunchScreen.storyboard */,
 				6DE5FCE429F6964F008D9632 /* Extensions.swift */,
+				6D22DFFC29F87E3100EC4F25 /* Constants.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DE5FCCF29F694D9008D9632 /* MLoginViewController.swift in Sources */,
+				6D22DFFD29F87E3100EC4F25 /* Constants.swift in Sources */,
 				6D3E4CFF29F7049100A99E04 /* MDetailViewController.swift in Sources */,
 				6D3E4D0729F7206500A99E04 /* MCookiesManager.swift in Sources */,
 				6DE5FCCB29F694D9008D9632 /* AppDelegate.swift in Sources */,

@@ -39,6 +39,7 @@ extension MGalleryViewViewModel: UICollectionViewDelegate, UICollectionViewDataS
             fatalError("Unsupported cell")
         }
         
+        cell.spinnerAnimating()
         let imageURL = images[indexPath.row].urlString
         cell.configure(with: imageURL)
         
