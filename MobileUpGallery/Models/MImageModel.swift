@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct MPhotoModel: Codable {
+struct MImageModel: Codable {
     let response: Album
 }
 

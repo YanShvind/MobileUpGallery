@@ -15,6 +15,7 @@ final class MGalleryViewController: UIViewController {
     private func setUpComponents() {
         title = "MobileUp Gallery"
         view.backgroundColor = .systemBackground
+        galleryView.delegate = self
         
         guard let navigationBar = navigationController?.navigationBar else {
             return
@@ -51,5 +52,18 @@ final class MGalleryViewController: UIViewController {
             galleryView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             galleryView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
+    }
+}
+
+extension MGalleryViewController: MGalleryViewDelegate {
+    func mGalleryView(_ galleryView: MGalleryView, didSelectImage image: MImageDataModel) {
+        let date = Date(timeIntervalSince1970: TimeInterval(image.date))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        let dateString = dateFormatter.string(from: date)
+        let detailVC = MDetailViewController(title: dateString)
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backButton
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
