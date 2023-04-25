@@ -9,3 +9,8 @@ extension UIView {
         })
     }
 }
+
+enum APIError: Error {
+    case failedToGetData
+    case invalidURL
+}

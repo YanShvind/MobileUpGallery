@@ -20,7 +20,7 @@ final class MGalleryViewController: UIViewController {
             return
         }
         
-        let titleFont = UIFont.boldSystemFont(ofSize: 18)
+        let titleFont = UIFont.boldSystemFont(ofSize: 17)
         navigationBar.titleTextAttributes = [.font: titleFont]
         
         let exitButton = UIBarButtonItem(title: "Выход",
@@ -33,10 +33,10 @@ final class MGalleryViewController: UIViewController {
         let buttonFont = UIFont.systemFont(ofSize: 17, weight: .regular)
         exitButton.setTitleTextAttributes([.font: buttonFont], for: .normal)
     }
-    
+        
     @objc private func exitButtonTapped() {
         MKeychainManager.shared.deleteToken(withIdentifier: "myToken")
-        MDataManager.shared.clearCookies()
+        MDataManager.shared.clearningCookies()
         
         let vc = MLoginViewController()
         vc.modalPresentationStyle = .fullScreen

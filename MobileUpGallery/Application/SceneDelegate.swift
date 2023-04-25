@@ -10,7 +10,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        let token = MKeychainManager.shared.readToken(withIdentifier: "myToken")
+        let token = MKeychainManager.shared.getToken(withIdentifier: "myToken")
         if token != nil {
             let galleryVC = MGalleryViewController()
             window.rootViewController = UINavigationController(rootViewController: galleryVC)
