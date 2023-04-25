@@ -37,7 +37,7 @@ final class MNetworkManager {
                 let result = try decoder.decode(MImageModel.self, from: data)
                 let images = result.response.items.compactMap { item -> MImageDataModel? in
                     guard let url = item.sizes.first(where: { $0.type.rawValue == "z" })?.url else { return nil }
-                    return MImageDataModel(urlString: url, date: item.date, id: item.id)
+                    return MImageDataModel(urlString: url, date: item.date)
                 }
                 completion(.success(images))
             } catch {
