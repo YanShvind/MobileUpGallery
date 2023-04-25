@@ -2,14 +2,34 @@
 import Foundation
 import UIKit
 
-final class MGalleryViewViewModel: NSObject {
+protocol MGalleryViewViewModelDelegate: AnyObject {
+    func onCollectionUpdate()
+}
 
+final class MGalleryViewViewModel: NSObject {
     
+    weak var delegate: MGalleryViewViewModelDelegate?
+    
+    private var images = [MPhotoDataModel]()
+    
+    public func fetchImages() {
+        MNetworkManager.shared.getImages { [weak self] result in
+            switch result {
+            case .success(let images):
+                DispatchQueue.main.async {
+                    self?.images = images
+                    self?.delegate?.onCollectionUpdate()
+                }
+            case .failure:
+                print("ERROR")
+            }
+        }
+    }
 }
 
 extension MGalleryViewViewModel: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -17,7 +37,10 @@ extension MGalleryViewViewModel: UICollectionViewDelegate, UICollectionViewDataS
                                                             for: indexPath) as? MGalleryCollectionViewCell else {
             fatalError("Unsupported cell")
         }
-        cell.backgroundColor = .yellow
+        
+        let imageURL = images[indexPath.row].urlString
+        cell.configure(with: imageURL)
+        
         return cell
     }
     

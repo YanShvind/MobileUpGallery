@@ -15,6 +15,9 @@
 		6D3E4D0229F704DE00A99E04 /* MDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4D0129F704DE00A99E04 /* MDetailView.swift */; };
 		6D3E4D0529F7146B00A99E04 /* MKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4D0429F7146B00A99E04 /* MKeychainManager.swift */; };
 		6D3E4D0729F7206500A99E04 /* MDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4D0629F7206500A99E04 /* MDataManager.swift */; };
+		6D3E4D0929F7339500A99E04 /* MPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4D0829F7339500A99E04 /* MPhotoModel.swift */; };
+		6D3E4D0B29F7341A00A99E04 /* MPhotoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4D0A29F7341A00A99E04 /* MPhotoDataModel.swift */; };
+		6D3E4D0D29F7344C00A99E04 /* MNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E4D0C29F7344C00A99E04 /* MNetworkManager.swift */; };
 		6DE5FCCB29F694D9008D9632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5FCCA29F694D9008D9632 /* AppDelegate.swift */; };
 		6DE5FCCD29F694D9008D9632 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5FCCC29F694D9008D9632 /* SceneDelegate.swift */; };
 		6DE5FCCF29F694D9008D9632 /* MLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5FCCE29F694D9008D9632 /* MLoginViewController.swift */; };
@@ -35,6 +38,9 @@
 		6D3E4D0129F704DE00A99E04 /* MDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDetailView.swift; sourceTree = "<group>"; };
 		6D3E4D0429F7146B00A99E04 /* MKeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKeychainManager.swift; sourceTree = "<group>"; };
 		6D3E4D0629F7206500A99E04 /* MDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDataManager.swift; sourceTree = "<group>"; };
+		6D3E4D0829F7339500A99E04 /* MPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPhotoModel.swift; sourceTree = "<group>"; };
+		6D3E4D0A29F7341A00A99E04 /* MPhotoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPhotoDataModel.swift; sourceTree = "<group>"; };
+		6D3E4D0C29F7344C00A99E04 /* MNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNetworkManager.swift; sourceTree = "<group>"; };
 		6DE5FCC729F694D9008D9632 /* MobileUpGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUpGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DE5FCCA29F694D9008D9632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DE5FCCC29F694D9008D9632 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,10 +134,27 @@
 		6D3E4D0329F7143500A99E04 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				6D3E4D0F29F7346C00A99E04 /* APIClient */,
+				6D3E4D0E29F7345100A99E04 /* Keychain */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		6D3E4D0E29F7345100A99E04 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
 				6D3E4D0429F7146B00A99E04 /* MKeychainManager.swift */,
 				6D3E4D0629F7206500A99E04 /* MDataManager.swift */,
 			);
-			path = Managers;
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		6D3E4D0F29F7346C00A99E04 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				6D3E4D0C29F7344C00A99E04 /* MNetworkManager.swift */,
+			);
+			path = APIClient;
 			sourceTree = "<group>";
 		};
 		6DE5FCBE29F694D9008D9632 = {
@@ -186,6 +209,8 @@
 		6DE5FCE029F695D1008D9632 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6D3E4D0829F7339500A99E04 /* MPhotoModel.swift */,
+				6D3E4D0A29F7341A00A99E04 /* MPhotoDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -294,6 +319,7 @@
 				6D3E4CFF29F7049100A99E04 /* MDetailViewController.swift in Sources */,
 				6D3E4D0729F7206500A99E04 /* MDataManager.swift in Sources */,
 				6DE5FCCB29F694D9008D9632 /* AppDelegate.swift in Sources */,
+				6D3E4D0929F7339500A99E04 /* MPhotoModel.swift in Sources */,
 				6DE5FCCD29F694D9008D9632 /* SceneDelegate.swift in Sources */,
 				6D3E4CF629F6C6CB00A99E04 /* MGalleryView.swift in Sources */,
 				6D3E4CFC29F6D4F200A99E04 /* MGalleryCollectionViewCell.swift in Sources */,
@@ -304,6 +330,8 @@
 				6DE5FCEB29F6BB05008D9632 /* MAuthorizationWebViewController.swift in Sources */,
 				6DE5FCE929F6A659008D9632 /* MLoginViewViewModel.swift in Sources */,
 				6DE5FCE729F6985C008D9632 /* MLoginView.swift in Sources */,
+				6D3E4D0B29F7341A00A99E04 /* MPhotoDataModel.swift in Sources */,
+				6D3E4D0D29F7344C00A99E04 /* MNetworkManager.swift in Sources */,
 				6DE5FCE529F6964F008D9632 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

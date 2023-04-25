@@ -23,19 +23,19 @@ final class MKeychainManager {
             ]
             let status = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
             if status == errSecSuccess {
-                print("Token updated successfully")
+                print("Token update")
             }
         case errSecItemNotFound:
             let status = SecItemAdd(query as CFDictionary, nil)
             if status == errSecSuccess {
-                print("Token added successfully")
+                print("Token add")
             }
         default:
             print("Error: \(status)")
         }
     }
     
-    func readToken(withIdentifier identifier: String) -> String? {
+    func getToken(withIdentifier identifier: String) -> String? {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: identifier,
@@ -61,7 +61,7 @@ final class MKeychainManager {
         
         let status = SecItemDelete(query as CFDictionary)
         if status == errSecSuccess {
-            print("Token deleted successfully")
+            print("Token delete")
         } else {
             print("Error: \(status)")
         }

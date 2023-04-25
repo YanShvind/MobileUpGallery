@@ -21,6 +21,8 @@ final class MGalleryView: UIView {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         
+        viewModel.fetchImages()
+        viewModel.delegate = self
         collectionView.delegate = viewModel
         collectionView.dataSource = viewModel
         addSubview(collectionView)
@@ -38,5 +40,11 @@ final class MGalleryView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension MGalleryView: MGalleryViewViewModelDelegate {
+    func onCollectionUpdate() {
+        self.collectionView.reloadData()
     }
 }
