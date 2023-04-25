@@ -29,6 +29,14 @@ final class MDetailView: UIView {
             imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
         ])
     }
+
+    public func configureImage(with imageURL: String) {
+        imageView.configureImage(with: imageURL)
+    }
+    
+    public func getImage() -> UIImage? {
+        return imageView.image
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

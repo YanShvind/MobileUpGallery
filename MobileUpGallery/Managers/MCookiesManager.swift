@@ -2,16 +2,15 @@
 import Foundation
 import WebKit
 
-final class MDataManager {
+final class MCookiesManager {
     
-    static let shared = MDataManager()
+    static let shared = MCookiesManager()
     
     private init() {}
     
     func clearningCookies() {
         HTTPCookieStorage.shared.removeCookies(since: .distantPast)
         let websiteDataTypes = WKWebsiteDataStore.allWebsiteDataTypes()
-        let _ = Date(timeIntervalSince1970: 0)
         WKWebsiteDataStore.default().fetchDataRecords(ofTypes: websiteDataTypes) { records in
             records.forEach { record in
                 WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes,

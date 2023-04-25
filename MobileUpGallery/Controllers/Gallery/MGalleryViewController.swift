@@ -37,7 +37,7 @@ final class MGalleryViewController: UIViewController {
         
     @objc private func exitButtonTapped() {
         MKeychainManager.shared.deleteToken(withIdentifier: "myToken")
-        MDataManager.shared.clearningCookies()
+        MCookiesManager.shared.clearningCookies()
         
         let vc = MLoginViewController()
         vc.modalPresentationStyle = .fullScreen
@@ -61,9 +61,12 @@ extension MGalleryViewController: MGalleryViewDelegate {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         let dateString = dateFormatter.string(from: date)
-        let detailVC = MDetailViewController(title: dateString)
+        let urlString = image.urlString
+        
         let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        backButton.tintColor = .label
         self.navigationItem.backBarButtonItem = backButton
+        let detailVC = MDetailViewController(title: dateString, imageUrl: urlString)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
