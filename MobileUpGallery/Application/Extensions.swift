@@ -18,11 +18,11 @@ enum APIError: Error {
 
 // расширение для получения картинки
 extension UIImageView {
-    func configureImage(with imageURL: String) {
+    func configureImage(with imageURL: String, spinner: UIActivityIndicatorView? = nil) {
         guard let url = URL(string: imageURL) else {
             return
         }
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             if let error = error {
                 print("Error loading image: \(error.localizedDescription)")
                 return
@@ -34,8 +34,10 @@ extension UIImageView {
             }
             
             DispatchQueue.main.async {
-                self.image = image
+                self?.image = image
+                spinner?.stopAnimating()
             }
-        }.resume()
+        }
+        task.resume()
     }
 }
