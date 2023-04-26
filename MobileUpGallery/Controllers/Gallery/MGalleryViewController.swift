@@ -56,7 +56,7 @@ final class MGalleryViewController: UIViewController {
 }
 
 extension MGalleryViewController: MGalleryViewDelegate {
-    func mGalleryView(_ galleryView: MGalleryView, didSelectImage image: MImageDataModel) {
+    func mGalleryView(_ galleryView: MGalleryView, didSelectImage image: MImageDataModel, images: [MImageDataModel]) {
         let date = Date(timeIntervalSince1970: TimeInterval(image.date))
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -66,7 +66,7 @@ extension MGalleryViewController: MGalleryViewDelegate {
         let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         backButton.tintColor = .label
         self.navigationItem.backBarButtonItem = backButton
-        let detailVC = MDetailViewController(title: dateString, imageUrl: urlString)
+        let detailVC = MDetailViewController(title: dateString, imageUrl: urlString, images: images)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

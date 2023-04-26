@@ -5,18 +5,22 @@ import UIKit
 final class MDetailViewController: UIViewController {
     
     private let detailView = MDetailView()
+    private var images = [MImageDataModel]()
     
-    init(title: String, imageUrl: String) {
+    init(title: String, imageUrl: String, images: [MImageDataModel]) {
         super.init(nibName: nil, bundle: nil)
         
         self.title = title
         self.detailView.configureImage(with: imageUrl)
+        self.images = images
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
+        detailView.collectionView.delegate = self
+        detailView.collectionView.dataSource = self
         setUpNavigationItem()
         setUpView()
     }
@@ -50,6 +54,8 @@ final class MDetailViewController: UIViewController {
         shareController.completionWithItemsHandler = { _, bool, _, _ in
             if bool {
                 // save alert
+            } else {
+                // don't save alert
             }
         }
         present(shareController, animated: true)
@@ -57,5 +63,30 @@ final class MDetailViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension MDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MDetailCollectionViewCell.cellIdentifier,
+                                                            for: indexPath) as? MDetailCollectionViewCell else {
+            fatalError("Unsupported cell")
+        }
+        
+        let imageURL = images[indexPath.row].urlString
+        cell.configure(with: imageURL)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let image = images[indexPath.row].urlString
+        detailView.configureImage(with: image)
     }
 }
