@@ -3,7 +3,8 @@ import UIKit
 
 protocol MGalleryViewDelegate: AnyObject {
     func mGalleryView(_ galleryView: MGalleryView,
-                      didSelectImage image: MImageDataModel)
+                      didSelectImage image: MImageDataModel,
+                      images: [MImageDataModel])
 }
 
 final class MGalleryView: UIView {
@@ -13,7 +14,7 @@ final class MGalleryView: UIView {
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = UICollectionView.ScrollDirection.vertical
+        layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 2
         layout.minimumLineSpacing = 3
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -50,8 +51,8 @@ final class MGalleryView: UIView {
 }
 
 extension MGalleryView: MGalleryViewViewModelDelegate {
-    func didSelectImage(_ image: MImageDataModel) {
-        delegate?.mGalleryView(self, didSelectImage: image)
+    func didSelectImage(_ image: MImageDataModel, _ images: [MImageDataModel]) {
+        delegate?.mGalleryView(self, didSelectImage: image, images: images)
     }
     
     func onCollectionUpdate() {

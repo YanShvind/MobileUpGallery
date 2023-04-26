@@ -1,7 +1,7 @@
 
 import UIKit
 
-final class MLoginViewController: UIViewController {
+final class MLoginViewController: MConnectivityViewController {
     
     private let loginView = MLoginView()
     private let viewModel = MLoginViewViewModel()

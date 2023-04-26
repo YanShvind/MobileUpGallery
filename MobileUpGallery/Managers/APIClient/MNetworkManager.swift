@@ -5,7 +5,7 @@ final class MNetworkManager {
     
     static let shared = MNetworkManager()
     
-    func getImages(completion: @escaping (Result<[MImageDataModel], Error>) -> Void) {
+    func fetchData(completion: @escaping (Result<[MImageDataModel], Error>) -> Void) {
         
         var components = URLComponents(string: MConstants.baseURL + MConstants.albumURL)!
         components.queryItems = [
