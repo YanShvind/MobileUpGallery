@@ -1,7 +1,7 @@
 
 import UIKit
 
-final class MGalleryViewController: UIViewController {
+final class MGalleryViewController: MConnectivityViewController {
     
     private let galleryView = MGalleryView()
     
@@ -16,7 +16,7 @@ final class MGalleryViewController: UIViewController {
         title = "MobileUp Gallery"
         view.backgroundColor = .systemBackground
         galleryView.delegate = self
-        
+                
         guard let navigationBar = navigationController?.navigationBar else {
             return
         }
@@ -34,14 +34,28 @@ final class MGalleryViewController: UIViewController {
         let buttonFont = UIFont.systemFont(ofSize: 17, weight: .regular)
         exitButton.setTitleTextAttributes([.font: buttonFont], for: .normal)
     }
+    
+    @objc
+    private func exitButtonTapped() {
         
-    @objc private func exitButtonTapped() {
-        MKeychainManager.shared.deleteToken(withIdentifier: "myToken")
-        MCookiesManager.shared.clearningCookies()
-        
-        let vc = MLoginViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        let alert = UIAlertController(title: nil, message: "Вы действительно хотите выйти?", preferredStyle: .alert)
+
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+
+        let exitAction = UIAlertAction(title: "Выйти", style: .destructive) { _ in
+            MKeychainManager.shared.deleteToken(withIdentifier: "myToken")
+            MCookiesManager.shared.clearningCookies()
+            
+            let vc = MLoginViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self.dismiss(animated: true) {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        alert.addAction(exitAction)
+
+        present(alert, animated: true, completion: nil)
     }
     
     private func setUpView() {

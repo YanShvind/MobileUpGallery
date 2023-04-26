@@ -42,7 +42,20 @@ final class MAuthorizationViewController: UIViewController {
             webview.goBack()
         } else {
             dismiss(animated: true)
+            showAlert()
         }
+    }
+    
+    private func showAlert() {
+        let alertController = UIAlertController(title: nil,
+                                                message: "Вы закрыли окно регистрации",
+                                                preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK",
+                                                style: .default,
+                                                handler: nil))
+        
+        view.window?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -74,6 +87,7 @@ extension MAuthorizationViewController: WKNavigationDelegate {
             navigationController?.setViewControllers([galleryVC], animated: true)
         } else {
             dismiss(animated: true)
+            showAlert()
         }
         decisionHandler(.cancel)
     }

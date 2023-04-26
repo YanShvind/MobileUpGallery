@@ -41,3 +41,19 @@ extension UIImageView {
         task.resume()
     }
 }
+
+// алерт
+extension UIAlertController {
+    static func showAlert(title: String?, message: String?, viewController: UIViewController) {
+        
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK",
+                                                style: .default,
+                                                handler: nil))
+        
+        viewController.present(alertController, animated: true, completion: nil)
+    }
+}

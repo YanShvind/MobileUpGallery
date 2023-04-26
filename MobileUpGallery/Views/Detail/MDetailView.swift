@@ -55,12 +55,12 @@ final class MDetailView: UIView {
             scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: collectionView.topAnchor),
             
             imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
             imageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            imageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 0.5),
+            imageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 0.65),
             
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),

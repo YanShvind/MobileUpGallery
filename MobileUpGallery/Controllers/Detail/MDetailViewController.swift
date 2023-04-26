@@ -2,7 +2,7 @@
 import Foundation
 import UIKit
 
-final class MDetailViewController: UIViewController {
+final class MDetailViewController: MConnectivityViewController {
     
     private let detailView = MDetailView()
     private var images = [MImageDataModel]()
@@ -42,7 +42,10 @@ final class MDetailViewController: UIViewController {
         navigationController?.navigationBar.addSubview(borderView)
         
         let systemImage = UIImage(systemName: "square.and.arrow.up")
-        let button = UIBarButtonItem(image: systemImage, style: .plain, target: self, action: #selector(didTapButton))
+        let button = UIBarButtonItem(image: systemImage,
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(didTapButton))
         button.tintColor = .label
         navigationItem.rightBarButtonItem = button
     }
@@ -51,13 +54,19 @@ final class MDetailViewController: UIViewController {
         let image = detailView.getImage()
         let shareController = UIActivityViewController(activityItems: [image!],
                                                        applicationActivities: nil)
+        
         shareController.completionWithItemsHandler = { _, bool, _, _ in
             if bool {
-                // save alert
+                UIAlertController.showAlert(title: "Операция выполнена успешно",
+                                            message: nil,
+                                            viewController: self)
             } else {
-                // don't save alert
+                UIAlertController.showAlert(title: "Упс...",
+                                            message: "Вы закрыли окно",
+                                            viewController: self)
             }
         }
+        
         present(shareController, animated: true)
     }
     
@@ -88,5 +97,10 @@ extension MDetailViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         let image = images[indexPath.row].urlString
         detailView.configureImage(with: image)
+        let date = Date(timeIntervalSince1970: TimeInterval(images[indexPath.row].date))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        let dateString = dateFormatter.string(from: date)
+        title = dateString
     }
 }
